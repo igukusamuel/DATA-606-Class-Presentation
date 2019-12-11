@@ -1,0 +1,150 @@
+---
+title: "DATA 606 Class Presentation"
+author: "Samuel I Kigamba"
+date: "December 11, 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+# 8.31 Body measurements, Part IV. 
+
+The scatterplot and least squares summary below show the relationship between weight measured in kilograms
+and height measured in centimeters of 507 physically active individuals.
+
+```{r}
+
+library(XML)
+library(RCurl)
+library(dplyr)
+library(plyr)
+library(tidyr)
+library(plotly)
+library(tidyverse)
+library(tidyselect)
+library(data.table)
+#install.packages('png')
+library(htmltools)
+library(png)
+```
+
+
+![](C:/Users/wb508205/Desktop/DATA Science CUNY/DATA 606 Probability and Statistics/WeightHeight.png)
+
+
+
+```{r}
+#imgage <- "WeightHeight.png"
+#include_graphics(imgage)
+```
+
+(a) Describe the relationship between height and weight.
+
+  From the scatterplot above there seems to be a positive relationship between Height and Weight.
+
+(b) Write the equation of the regression line. Interpret the slope and intercept in context.
+
+\[Weight = -105.0113 + 1.0176 X Height +- SE \]
+
+(c) Do the data provide strong evidence that an increase in height is associated with an increase in weight?
+
+  Yes: The data provides strong evidence that an increease in height is associated with an increase in weight.
+  
+```{r}
+
+Weight1h = -105.0113 + 1.0176 * 160 + 7.5394
+Weight1l = -105.0113 + 1.0176 * 160 - 7.5394
+print(c(Weight1l, Weight1h))
+
+Weight2h = -105.0113 + 1.0176 * 175 + 7.5394
+Weight2l = -105.0113 + 1.0176 * 175 - 7.5394
+print(c(Weight2l, Weight2h))
+
+Weight3h = -105.0113 + 1.0176 * 190 + 7.5394
+Weight3l = -105.0113 + 1.0176 * 190 - 7.5394
+print(c(Weight3l, Weight3h))
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+State the null and alternative hypotheses, report the p-value, and state your conclusion.
+
+H_0 : There is no relationship between weight and height.
+
+H_A : There is a relationship between weight and height.
+
+The P-value is so small that we reject the null hypothesis and conclude that there is a relationship between height and weight.
+Height and weight are positively correlated and the true slope is greater than zero.
+
+
+(d) The correlation coefficient for height and weight is 0.72. Calculate R2 and interpret it in context.
+
+```{r}
+#imgage <- "Correlation.png"
+#include_graphics(imgage)
+```
+
+The R^2 of a linear model describes the amount of variation in the response that is explained by the least squares line.
+This can also be interpreted as how closely the data cluster around the linear fit.
+
+```{r}
+
+R = 0.72
+R_Sqrd = R^2
+R_Sqrd
+
+```
+ 
+ In this case 51.84% of the variation is explained by the linear model.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
